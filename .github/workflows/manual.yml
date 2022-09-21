@@ -37,6 +37,6 @@ jobs:
         version: latest
     - name: create-project
       run: >
-        octo create-project --name MyWebApp${{ env.GITHUB_RUN_ATTEMPT }} --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server http://danefalvo.octopus.app --apikey ${{ secrets.octopus_apiKey }}
+        octo create-project --name MyWebApp$GITHUB_RUN_ATTEMPT --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server http://danefalvo.octopus.app --apikey ${{ secrets.octopus_apiKey }}
 
         
