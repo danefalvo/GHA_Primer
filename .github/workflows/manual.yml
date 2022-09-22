@@ -37,7 +37,7 @@ jobs:
     - name: Install Octopus CLI
       # You may pin to the exact commit or the version.
       # uses: OctopusDeploy/install-octopus-cli-action@a6f6f8d5767b5a61a2f9fd7a2472c28788214e27
-      uses: OctopusDeploy/install-octopus-cli-action@2.0.1
+      uses: OctopusDeploy/install-octopus-cli-action@v2.0.1
       with:
         # Octopus CLI version
         version: latest
