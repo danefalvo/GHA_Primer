@@ -34,6 +34,7 @@ jobs:
     - name: set runtime variable
       env:
           serverurl: "https://danefalvo.octopus.app"
+      run: echo "set serverurl to ${{ env.serverurl }}"
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
@@ -46,6 +47,6 @@ jobs:
         version: latest
     - name: create-project
       run: >
-        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server $env.serverurl --apikey ${{ secrets.octopus_apiKey }}
+        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server ${{ env.serverurl }} --apikey ${{ secrets.octopus_apiKey }}
 
         
