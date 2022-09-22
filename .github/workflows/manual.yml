@@ -34,7 +34,7 @@ jobs:
     - name: set runtime variable
       env:
           serverurl: "https://danefalvo.octopus.app"
-      run: echo "set serverurl to ${{ env.serverurl }}"
+      run: env
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
