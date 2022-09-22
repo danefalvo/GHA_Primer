@@ -47,6 +47,6 @@ jobs:
         version: latest
     - name: create-project
       run: >
-        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server $serverurl --apikey ${{ secrets.octopus_apiKey }}
+        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server "$serverurl" --apikey ${{ secrets.octopus_apiKey }}
 
         
