@@ -21,6 +21,15 @@ on:
         default: 'GHActionsProject'
         # Input has to be provided for the workflow to run
         required: true
+env:
+  serverurl: https://danefalvo.octopus.app
+
+
+jobs:
+  windows_job:
+    runs-on: windows-latest
+    steps:
+      - run: echo 'Hi '  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,10 +40,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: set runtime variable
-      env:
-          serverurl: "https://danefalvo.octopus.app"
-      run: echo "Setting runtime"
     # Runs a single command using the runners shell
     - name: Send greeting
       run: >
@@ -49,6 +54,9 @@ jobs:
         version: latest
     - name: create-project
       run: >
-        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server ${{ "set runtime variable.serverurl" }} --apikey ${{ secrets.octopus_apiKey }}
+        octo create-project --name ${{ github.event.inputs.projectname }}$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle "Default Lifecycle" --server ${{ env.serverurl }} --apikey ${{ secrets.octopus_apiKey }}
+
+
+
 
         
