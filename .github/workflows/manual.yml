@@ -50,7 +50,7 @@ jobs:
         version: latest
     - name: create-project
       run: >
-        octo create-project --name ${{ github.event.inputs.projectname }}_${{ matrix.os }}_$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle 'Default Lifecycle' --server ${{ env.serverurl }} --apikey ${{ secrets.octopus_apiKey }}
+        octo create-project --name ${{ github.event.inputs.projectname }}_${{ RUNNER_OS }}_${{ matrix.python-version }}_$GITHUB_RUN_ID --projectgroup MyProjectGroup --lifecycle 'Default Lifecycle' --server ${{ env.serverurl }} --apikey ${{ secrets.octopus_apiKey }}
 
 
 
